@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oalshbou <oalshbou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/01 22:42:49 by oalshbou          #+#    #+#             */
+/*   Updated: 2025/09/01 23:01:59 by oalshbou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "ft_printf.h"
 #include <stdarg.h>
 
@@ -23,13 +33,14 @@ static int	handle_f(char f, va_list args)
 		count += ft_write("%", 1);
 	return (count);
 }
+
 int	ft_printf(const char *f, ...)
 {
 	va_list	args;
-	int	count;
-	int	i;
+	int		count;
+	int		i;
 
-	count =0;
+	count = 0;
 	i = 0;
 	va_start(args, f);
 	while (f[i])

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_str.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oalshbou <oalshbou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/01 23:34:46 by oalshbou          #+#    #+#             */
+/*   Updated: 2025/09/01 23:34:48 by oalshbou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	print_str(const char *s)
@@ -9,5 +21,5 @@ int	print_str(const char *s)
 		s = "(null)";
 	while (s[l])
 		l++;
-	return ft_write(s, l);
+	return (ft_write(s, l));
 }

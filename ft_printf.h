@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oalshbou <oalshbou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/01 23:35:14 by oalshbou          #+#    #+#             */
+/*   Updated: 2025/09/01 23:36:08 by oalshbou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
-#define FT_PRINTF_H
-#include <unistd.h>
-#include <stdarg.h>
+# define FT_PRINTF_H
+
+# include <stdarg.h>
+# include <unistd.h>
 
 int	ft_write(const char *s, size_t l);
 int	print_char(char c);
