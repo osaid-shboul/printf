@@ -6,16 +6,15 @@
 /*   By: osaid <osaid@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 23:06:23 by oalshbou          #+#    #+#             */
-/*   Updated: 2025/09/07 02:49:29 by oalshbou         ###   ########.fr       */
+/*   Updated: 2025/09/24 07:22:33 by osaid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
 
-static int	print_hptr(unsigned long n)
+static int print_hptr(unsigned long n)
 {
-	int		count;
-	char	*b;
-	char	c;
+	int count;
+	char *b;
+	char c;
 
 	b = "0123456789abcdef";
 	count = 0;
@@ -26,17 +25,21 @@ static int	print_hptr(unsigned long n)
 	return (count);
 }
 
-int	print_ptr(void *ptr)
+int print_ptr(void *ptr)
 {
-	int				count;
-	unsigned long	n;
+	int count;
+	unsigned long n;
 
+	if (!ptr)
+		return (0);
 	count = 0;
 	n = (unsigned long)ptr;
-	count += ft_write("0x", 2);
 	if (n == 0)
-		count += ft_write("0", 1);
+		count += ft_write("(nil)", 5);
 	else
+	{
+		count += ft_write("0x", 2);
 		count += print_hptr(n);
+	}
 	return (count);
 }
