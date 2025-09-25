@@ -12,11 +12,11 @@
 
 #include "ft_printf.h"
 
-static int print_hptr(unsigned long n)
+static int	print_hptr(unsigned long n)
 {
-	int count;
-	char *b;
-	char c;
+	int		count;
+	char	*b;
+	char	c;
 
 	b = "0123456789abcdef";
 	count = 0;
@@ -27,10 +27,10 @@ static int print_hptr(unsigned long n)
 	return (count);
 }
 
-int print_ptr(void *ptr)
+int	print_ptr(void *ptr)
 {
-	int count;
-	unsigned long n;
+	int				count;
+	unsigned long	n;
 
 	count = 0;
 	if (!ptr)
