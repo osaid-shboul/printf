@@ -6,7 +6,7 @@
 /*   By: oalshbou <oalshbou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 22:42:49 by oalshbou          #+#    #+#             */
-/*   Updated: 2025/09/01 23:01:59 by oalshbou         ###   ########.fr       */
+/*   Updated: 2025/09/25 14:50:41 by oalshbou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -17,6 +17,8 @@ static int	handle_f(char f, va_list args)
 	int	count;
 
 	count = 0;
+	if (f == '%')
+		count += write(1, "%", 1);
 	if (f == 'c')
 		count += print_char(va_arg(args, int));
 	else if (f == 's')
@@ -29,8 +31,6 @@ static int	handle_f(char f, va_list args)
 		count += print_hex(va_arg(args, unsigned int), f);
 	else if (f == 'p')
 		count += print_ptr(va_arg(args, void *));
-	else if (f == '%')
-		count += ft_write("%", 1);
 	return (count);
 }
 
@@ -43,10 +43,12 @@ int	ft_printf(const char *f, ...)
 	count = 0;
 	i = 0;
 	va_start(args, f);
-		if(f == NULL)
-			return(-1);
+	if (f == NULL)
+		return (-1);
 	while (f[i])
 	{
+		if (f[i] == '%' && f[i + 1] == '\0')
+			return (-1);
 		if (f[i] == '%')
 		{
 			i++;
