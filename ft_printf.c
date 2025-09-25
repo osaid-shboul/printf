@@ -43,6 +43,8 @@ int	ft_printf(const char *f, ...)
 	count = 0;
 	i = 0;
 	va_start(args, f);
+		if(f == NULL)
+			return(-1);
 	while (f[i])
 	{
 		if (f[i] == '%')
