@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+
 static int print_hptr(unsigned long n)
 {
 	int count;
@@ -30,9 +32,12 @@ int print_ptr(void *ptr)
 	int count;
 	unsigned long n;
 
-	if (!ptr)
-		return (0);
 	count = 0;
+	if (!ptr)
+	{
+		count += ft_write("(nil)", 5);
+		return (count);
+	}
 	n = (unsigned long)ptr;
 	if (n == 0)
 		count += ft_write("(nil)", 5);
